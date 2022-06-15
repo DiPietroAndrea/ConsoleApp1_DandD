@@ -82,6 +82,15 @@ namespace ConsoleApp1_DandD
                         foreach (var Personaggio in personaggiTrovati)
                         {
                             Console.WriteLine("\r\n" + Personaggio.stampaScheda());
+                            
+                            using (var writer = new StreamWriter("C:\\Users\\maxidata\\Desktop\\Schede.txt"))
+                            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                            {
+                                csv.WriteField("Elenco dei personaggi:");
+                                csv.NextRecord();
+                                csv.WriteRecords(Personaggio.stampaScheda());
+                                
+                            }
                         }
                     };
                 } while (true);

@@ -82,15 +82,21 @@ namespace ConsoleApp1_DandD
                         foreach (var Personaggio in personaggiTrovati)
                         {
                             Console.WriteLine("\r\n" + Personaggio.stampaScheda());
-                            
-                            using (var writer = new StreamWriter("C:\\Users\\maxidata\\Desktop\\Schede.txt"))
-                            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                            {
-                                csv.WriteField("Elenco dei personaggi:");
-                                csv.NextRecord();
-                                csv.WriteRecords(Personaggio.stampaScheda());
-                                
-                            }
+                        }
+
+                        var xml = Salvataggio(Elenco);
+                        Console.Write(xml);
+
+                        //Salvataggio su file csv
+
+                        var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+                        {
+                            Delimiter = ";"
+                        };
+                        using (var writer = new StreamWriter("C:\\Users\\maxidata\\Desktop\\Schede.txt"))
+                        using (var csv = new CsvWriter(writer, csvConfig))
+                        {
+                            csv.WriteRecords(personaggiTrovati);
                         }
                     };
                 } while (true);
@@ -107,6 +113,23 @@ namespace ConsoleApp1_DandD
                 Console.WriteLine(ex.Message);
             }
         }
+        //visaulizzare a video elenco personaggi formato xml e salvataggio in un file.xml
+
+        public static string Salvataggio<T>(T anyobject)
+        {
+            XmlSerializer serializer1 = new XmlSerializer(typeof(T));
+            using var file = new StreamWriter("C:\\Users\\maxidata\\Desktop\\Schede.xml");
+
+            var Deserialize = (T)serializer1.Deserialize();
+
+            string SerializeToXml;
+            {
+                using (StringWriter sw = new StringWriter())
+                {
+                    serializer1.Serialize(sw, anyobject);
+                    return sw.ToString();
+                }
+            }
     }
 }
 

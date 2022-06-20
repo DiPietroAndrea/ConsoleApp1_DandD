@@ -115,6 +115,22 @@ namespace ConsoleApp1_DandD
         }
         //visaulizzare a video elenco personaggi formato xml e salvataggio in un file.xml
 
+        
+        //    var company = new Company();
+    //    company.Employees = new List<Employee>() { new Employee() { Name = "o", Age = "10" }
+    //};
+    //SerializeToXml(company, xmlFilePath);
+    //public static void SerializeToXml<T>(T anyobject, string xmlFilePath)
+    //{
+    //    XmlSerializer xmlSerializer = new XmlSerializer(anyobject.GetType());
+
+    //    using (StreamWriter writer = new StreamWriter(xmlFilePath))
+    //    {
+    //        xmlSerializer.Serialize(writer, anyobject);
+    //    }
+    //}
+        
+        
         public static string Salvataggio<T>(T anyobject)
         {
             XmlSerializer serializer1 = new XmlSerializer(typeof(T));

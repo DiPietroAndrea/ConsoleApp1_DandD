@@ -4,8 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1_DandD.Model
+namespace AD.DandD.BLL.Model
 {
+    [System.Xml.Serialization.XmlInclude(typeof(Barbaro))]
+    [System.Xml.Serialization.XmlInclude(typeof(Bardo))]
+    [System.Xml.Serialization.XmlInclude(typeof(Ladro))]
+    [System.Xml.Serialization.XmlInclude(typeof(Mago))]
+    [System.Xml.Serialization.XmlInclude(typeof(Musicista))]
+    [System.Xml.Serialization.XmlInclude(typeof(Prestigiatore))]
+    [System.Xml.Serialization.XmlInclude(typeof(Soldato))]
+    [System.Xml.Serialization.XmlInclude(typeof(Stregone))]
     public class CreaPersonaggio
     {
         #region ---> Dichiarazioni
@@ -32,6 +40,7 @@ namespace ConsoleApp1_DandD.Model
         #endregion
 
         #region ---> Proprietà
+        public Guid ID { get; set; } = Guid.NewGuid();
         public string Nome
         { get { return nome; } set { nome = value; } }
         public string Cognome
@@ -49,6 +58,12 @@ namespace ConsoleApp1_DandD.Model
         {
             return ("Nome: " + nome + "\r\n" + "Cognome: " + cognome + "\r\n" + "Età: " + eta + "\r\n" + "Sesso: " + sesso + "\r\n" + "Luogo di nascita: " + luogoNascita + "\r\n");
         }
+
+        public override string ToString()
+        {
+            return stampaScheda();
+        }
+
         #endregion
     }
 }

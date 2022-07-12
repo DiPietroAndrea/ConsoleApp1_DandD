@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1_DandD.Model
+namespace AD.DandD.BLL.Model
 {
-    class Stregone : Prestigiatore
+    public class Stregone : Prestigiatore
     {
         public String stileStregone;
         public int puntiStregoneria;

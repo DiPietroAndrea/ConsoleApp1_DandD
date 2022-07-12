@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1_DandD", "ConsoleApp1_DandD\ConsoleApp1_DandD.csproj", "{458ED462-153C-4C03-80DD-A4AC2533BEEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1_DandD", "ConsoleApp1_DandD\ConsoleApp1_DandD.csproj", "{458ED462-153C-4C03-80DD-A4AC2533BEEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AD.Helper", "AD.Helper\AD.Helper.csproj", "{912B8CF4-152F-44ED-8482-19BE209CECE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AD.DandD.BLL", "AD.DandD.DLL\AD.DandD.BLL.csproj", "{2CAB34BA-8534-463B-934D-EE1F56473FB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{458ED462-153C-4C03-80DD-A4AC2533BEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{458ED462-153C-4C03-80DD-A4AC2533BEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{458ED462-153C-4C03-80DD-A4AC2533BEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912B8CF4-152F-44ED-8482-19BE209CECE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912B8CF4-152F-44ED-8482-19BE209CECE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912B8CF4-152F-44ED-8482-19BE209CECE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912B8CF4-152F-44ED-8482-19BE209CECE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CAB34BA-8534-463B-934D-EE1F56473FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CAB34BA-8534-463B-934D-EE1F56473FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CAB34BA-8534-463B-934D-EE1F56473FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CAB34BA-8534-463B-934D-EE1F56473FB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

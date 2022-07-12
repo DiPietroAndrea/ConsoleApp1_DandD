@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1_DandD.Model
+namespace AD.DandD.BLL.Model
 {
-    class Ladro : Soldato
+    public class Ladro : Soldato
     {
         private String stileLadro;
         private int puntiFurtività;
@@ -28,7 +28,7 @@ namespace ConsoleApp1_DandD.Model
         public int PuntiFurtività
         { get { return puntiFurtività; } set { puntiFurtività= value; } }
         public String AbilitàFurtiva
-        { get { return AbilitàFurtiva; } set { AbilitàFurtiva = value; } }
+        { get { return abilitàFurtiva; } set { abilitàFurtiva = value; } }
 
         public override string stampaScheda()
         {

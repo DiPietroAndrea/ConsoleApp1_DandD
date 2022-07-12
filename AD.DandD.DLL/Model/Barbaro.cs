@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1_DandD.Model
+namespace AD.DandD.BLL.Model
 {
-    class Barbaro : Soldato
+    public class Barbaro : Soldato
     {
         #region ---> Dichiarazioni
         private String stileBarbaro;

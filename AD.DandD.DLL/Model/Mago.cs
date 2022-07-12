@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1_DandD.Model
+namespace AD.DandD.BLL.Model
 {
-    class Mago : Prestigiatore
+    public class Mago : Prestigiatore
     {
+
         #region ---> Dichiarazioni
         private String stileMago;
         private int puntiMago;

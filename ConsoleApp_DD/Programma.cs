@@ -56,6 +56,7 @@ namespace ConsoleApp_DD
             // ---> Lettura del file
 
             Elenco.Clear();
+
             Elenco.AddRange(ctx.Leggere());
 
             if (Elenco.Count() == 0) throw new Exception("L'elenco è vuoto");
@@ -69,6 +70,7 @@ namespace ConsoleApp_DD
             ctx.Inserire(nuovo);
 
             ctx.Inserire(n);
+
             // ---> Verfica inserimento e rilettura del file
 
             Elenco.Clear();

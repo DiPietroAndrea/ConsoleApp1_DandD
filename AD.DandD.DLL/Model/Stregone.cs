@@ -31,7 +31,7 @@ namespace AD.DandD.BLL.Model
 
         public override string stampaScheda()
         {
-            return (base.stampaScheda() + "stil stregone: " + stileStregone + "\r\npunti stregonerai: " + puntiStregoneria + "\r\nincantesimo " + incantesimo);
+            return ("Personaggio 5: \r\n\r\n" + base.stampaScheda() + "Stile stregone: " + stileStregone + "\r\nPunti stregonerai: " + puntiStregoneria + "\r\nIncantesimo " + incantesimo);
         }
     }
 }

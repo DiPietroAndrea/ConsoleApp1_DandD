@@ -17,7 +17,6 @@ namespace AD.DandD.ORM
 {
     public class Context
     {
-
         #region --> Dichiarazioni
 
         private Config config;
@@ -29,13 +28,14 @@ namespace AD.DandD.ORM
         public Context(Config config)
         {
             this.config = config;
+            if (!Directory.Exists(config.Path)) Directory.CreateDirectory(config.Path);
         }
 
         #endregion
 
         #region --> Metodi
 
-        public void Scrivere(IEnumerable<BLL.Model.CreaPersonaggio> elenco)
+        public void Scrivere(IEnumerable<AD.DandD.BLL.Model.CreaPersonaggio> elenco)
         {
             var filepath = System.IO.Path.Combine(config.Path, "personaggi.json");
             elenco.ToJSONFile(filepath);
@@ -48,6 +48,7 @@ namespace AD.DandD.ORM
             if (!File.Exists(filepath)) return elenco;
             
             var p = filepath.FromJSONFile<IEnumerable<BLL.Model.CreaPersonaggio>>();
+            if (p == null) return elenco;  
             elenco.AddRange(p);
             return elenco;
         }
@@ -86,7 +87,34 @@ namespace AD.DandD.ORM
             this.Scrivere(elenco);
         }
 
-        public void Modificare(BLL.Model.CreaPersonaggio item)
+        //public void Modificare(BLL.Model.CreaPersonaggio item)
+        //{
+        //    var elenco = this.Leggere().ToList();
+
+        //    //--> Logica di validazione
+
+        //    this.Validare(item);
+
+        //    //--> Cerco l'item con la stessa chiave
+
+        //    var old_item = (from c in elenco
+        //                    where item.ID == c.ID where item.Nome == c.Nome
+        //                    select c).FirstOrDefault();
+
+        //    //--> Sostituisco l'item nell'elenco
+
+        //    if (old_item == null) throw new Exception("L'oggetto passato non appartiene all'eleneco");
+        
+        //        elenco.Remove(old_item);
+        
+        //        elenco.Add(item);
+
+        //    //--> Riscrivo tutto l'elenco
+
+        //    this.Scrivere(elenco);
+        //}
+
+        public void Modificare(BLL.Model.CreaPersonaggio item, BLL.Model.CreaPersonaggio? old_item)
         {
             var elenco = this.Leggere().ToList();
 
@@ -96,17 +124,18 @@ namespace AD.DandD.ORM
 
             //--> Cerco l'item con la stessa chiave
 
-            var old_item = (from c in elenco
-                     where item.ID == c.ID
-                     select c).FirstOrDefault();
+            old_item = (from c in elenco
+                            where item.ID == c.ID
+                            where item.Nome == c.Nome
+                            select c).FirstOrDefault();
 
             //--> Sostituisco l'item nell'elenco
 
-            //elenco.Select(from c in elenco where c.Nome = c.Nome.Replace() select c);
-
             if (old_item == null) throw new Exception("L'oggetto passato non appartiene all'eleneco");
-                elenco.Remove(old_item);
-                elenco.Add(item);
+            
+            elenco.Remove(old_item);
+            
+            elenco.Add(item);
 
             //--> Riscrivo tutto l'elenco
 
@@ -134,6 +163,5 @@ namespace AD.DandD.ORM
         }
 
         #endregion
-
     }
 }

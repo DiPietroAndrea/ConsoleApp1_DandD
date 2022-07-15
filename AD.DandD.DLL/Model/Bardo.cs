@@ -27,17 +27,22 @@ namespace AD.DandD.BLL.Model
         #endregion
 
         #region ---> Proprietà
+
         public String StileBardo
         { get { return stileBardo; } set { stileBardo = value; } }
         public int PuntiIspirazione
         { get { return puntiIspirazione; } set { puntiIspirazione = value; } }
+        
         #endregion
+
         public String Brano
             { get { return brano; } set { brano = value; } }
+
         #region ---> Metodi
+
         public override string stampaScheda()
         {
-            return ("Personaggio 3: \r\n\r\n" + base.stampaScheda() + "\r\n" + "Stile di combattimento: " + stileBardo + "\r\n" + "Punti ispirazione: " + puntiIspirazione + "\r\nbrano: " + brano + "\r\n");
+            return ("Personaggio 3: \r\n\r\n" + base.stampaScheda() + "\r\n" + "Stile di combattimento: " + stileBardo + "\r\n" + "Punti ispirazione: " + puntiIspirazione + "\r\nBrano: " + brano + "\r\n");
         }
         #endregion
     }

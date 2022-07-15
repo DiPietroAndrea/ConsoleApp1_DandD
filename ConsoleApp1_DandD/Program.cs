@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using AD.Helper;
+using AD.DandD.BLL;
 
 
 namespace ConsoleApp1_DandD
 {
-
     public class Program
     {
         public static List<AD.DandD.BLL.Model.CreaPersonaggio> Elenco = new List<AD.DandD.BLL.Model.CreaPersonaggio>();
@@ -101,9 +101,9 @@ namespace ConsoleApp1_DandD
                         foreach (var Personaggio in personaggiTrovati)
                         {
                             Console.WriteLine("\n" + Personaggio.stampaScheda() + "\n");
-
+                            
                         }
-
+                        
                     };
 
                 } while (true);

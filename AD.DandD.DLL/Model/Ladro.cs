@@ -32,7 +32,7 @@ namespace AD.DandD.BLL.Model
 
         public override string stampaScheda()
         {
-            return (base.stampaScheda() + "stile ladro: " + stileLadro + "\r\npunti furtività: " + puntiFurtività + "\r\nabilità furtiva: " + abilitàFurtiva);
+            return ("Personaggio 4: \r\n\r\n" + base.stampaScheda() + "Stile ladro: " + stileLadro + "\r\nPunti furtività: " + puntiFurtività + "\r\nAbilità furtiva: " + abilitàFurtiva + "\r\n");
         }
     }
 }

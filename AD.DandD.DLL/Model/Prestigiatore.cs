@@ -34,7 +34,7 @@ namespace AD.DandD.BLL.Model
         #region ---> Metodi
         public override string stampaScheda()
         {
-            return (base.stampaScheda() + "trucchetti: " + trucchetto + "\r\nasso nella manica: " + assoManica + "\r\n");
+            return (base.stampaScheda() + "Trucchetti: " + trucchetto + "\r\nAsso nella manica: " + assoManica);
         }
         #endregion
     }

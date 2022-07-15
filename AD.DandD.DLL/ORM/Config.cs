@@ -8,12 +8,11 @@ namespace AD.DandD.BLL.ORM
 {
     public class Config
     {
-        private String path;
         public Config(string p)
         {
-            path = p;
+            this.Path = p;
         }
-        public virtual string Path
-        { get { return path; }  set { path = @"C:\User\maxidata\Desktop\Elenco_Personaggi"; } }
+        public string Path { get; set; }
+
     }
 }

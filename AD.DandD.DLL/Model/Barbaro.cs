@@ -39,7 +39,7 @@ namespace AD.DandD.BLL.Model
         #region ---> Metodi
         public override string stampaScheda()
         {
-            return ("Personaggio 1: \r\n\r\n" + base.stampaScheda() + "\r\n" + "Stile di combattimento: " + stileBarbaro + "\r\n" + "Punti Furia:  " + puntiFuria + "\r\n" + "Armatura: " + armatura);
+            return ("Personaggio 1: \r\n\r\n" + base.stampaScheda() + "\r\n" + "Stile di combattimento: " + stileBarbaro + "\r\n" + "Punti Furia:  " + puntiFuria + "\r\n" + "Armatura: " + armatura + "\r\n");
         }
         #endregion
     }

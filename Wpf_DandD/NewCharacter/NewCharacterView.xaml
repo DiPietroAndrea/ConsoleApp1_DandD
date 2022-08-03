@@ -1,0 +1,49 @@
+﻿<Window x:Class="Wpf_DandD.NewCharacterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_DandD"
+        mc:Ignorable="d"
+        Title="Window_NewCharacter" Height="400" Width="350" Background="AliceBlue">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="25" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="75" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Text="Creazione di un nuovo personaggio" FontStyle="Italic" 
+                   FontWeight="Bold" FontSize="17"/>
+        
+        <Label Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center">Nome:*</Label>
+        <TextBox x:Name="Nome" Grid.Column="1" Grid.Row="1" Margin="100, 15, 15, 15" Text="{Binding NuovoNome}"/>
+        
+        <Label Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center">Cognome:*</Label>
+        <TextBox x:Name="Cognome" Grid.Column="1" Grid.Row="2" Margin="100, 15, 15, 15" Text="{Binding NuovoCognome}"/>
+        
+        <Label Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">Età:*</Label>
+        <TextBox x:Name="Eta" Grid.Column="1" Grid.Row="3" Margin="100, 15, 15, 15" Text="{Binding NuovoEta}"/>
+        
+        <Label Grid.Column="1"  Grid.Row="4" VerticalAlignment="Center">Sesso:</Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="100, 15, 15, 15" Text="{Binding NuovoSesso}"/>
+        
+        <Label Grid.Column="1" Grid.Row="5" VerticalAlignment="Center">Luogo di nascita:</Label>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="100, 15, 15, 15" Text="{Binding NuovoLuogoNascita}"/>
+        
+        <TextBlock Grid.Column="1" Grid.Row="6" Margin="0, 0, 0, 60" TextWrapping="Wrap" 
+                   HorizontalAlignment="Center" Text="Tutti i campi con * sono obbligatori da compilare" 
+                   FontStyle="Oblique" Foreground="Red" FontWeight="Bold"/>
+        <Button Grid.Column="1" Grid.Row="6" Margin="5, 25, 210, 25" Content="Annulla" IsCancel="True" />
+        <Button Grid.Column="1" Grid.Row="6" Margin="210, 25, 5, 25" Content="Conferma" Command="{Binding ConfermaCommand}"/>
+    </Grid>
+</Window>

@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AD.DandD.DLL\AD.DandD.BLL.csproj" />
     <ProjectReference Include="..\AD.Helper\AD.Helper.csproj" />
+    <ProjectReference Include="..\ConsoleApp_DD\ConsoleApp_DD.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -38,7 +38,8 @@ namespace ConsoleApp_DD
 
             #endregion
 
-            // ---> Scrittura dell'elenco
+
+            #region ---> Scrivere
 
             var ctx = new Context(cfg);
             
@@ -53,7 +54,10 @@ namespace ConsoleApp_DD
 
             Console.WriteLine("\r\nQuesto è l'elenco dei personaggi");
 
-            // ---> Lettura del file
+            #endregion
+
+
+            #region ---> Leggere
 
             Elenco.Clear();
 
@@ -61,7 +65,10 @@ namespace ConsoleApp_DD
 
             if (Elenco.Count() == 0) throw new Exception("L'elenco è vuoto");
 
-            // ---> Inserimento nuovo personaggio nel file
+            #endregion
+
+
+            #region ---> Inserire
 
             var nuovo = new AD.DandD.BLL.Model.CreaPersonaggio("Valeria", "Calore", 18, "Femmina", "Nettuno");
 
@@ -83,11 +90,20 @@ namespace ConsoleApp_DD
 
             Console.WriteLine("\r\nL'elenco è stato aggiornato.\r\n\r\nPersonaggio 6:\r\n\r\n" + nuovo + "Personaggio 7:\r\n\r\n" + n);
 
-            // ---> Modifica di un personaggio nel file
+            #endregion
 
-            var pm = new AD.DandD.BLL.Model.CreaPersonaggio("Valentina", "Calore", 18, "Femmina", "Nettuno");
 
-            ctx.Modificare(nuovo, pm);
+            #region ---> Modificare
+
+            nuovo.Nome = "Valentina";
+
+            //var pm = new AD.DandD.BLL.Model.CreaPersonaggio("Valentina", "Calore", 18, "Femmina", "Nettuno");
+
+            ctx.Inserire(nuovo);
+
+            //pm.Nome = "pippo";
+
+            ctx.Modificare(nuovo);
 
             // ---> Verifica modifica e rilettura del file
 
@@ -95,9 +111,14 @@ namespace ConsoleApp_DD
             
             Elenco.AddRange(ctx.Leggere());
 
-            if (!(from x in Elenco where x.ID != pm.ID select x).Any()) throw new Exception("La modifica non è stata apportata corretamente");
+            if (!(from x in Elenco where x.ID == nuovo.ID select x).Any()) throw new Exception("La modifica non è stata apportata corretamente");
 
-            // ---> Elimina un personaggio dal file
+            if (!(from x in Elenco where x.ID == nuovo.ID && x.Nome == nuovo.Nome select x).Any()) throw new Exception("La modifica non è stata effettuata"); 
+
+            #endregion
+
+
+            #region ---> Eliminare
 
             ctx.Eliminare(barbaro);
 
@@ -115,6 +136,8 @@ namespace ConsoleApp_DD
             {
                 Console.WriteLine("\r\n" + p);
             }
+
+            #endregion
         }
     }
 }

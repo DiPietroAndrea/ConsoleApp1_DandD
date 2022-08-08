@@ -5,47 +5,36 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Wpf_DandD.Personalizza"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="740"
+      d:DesignHeight="400" d:DesignWidth="550"
       Title="PersonalizzaView">
     <Grid>
         <Grid.Resources>
-            <Style TargetType="{x:Type TextBlock}">
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="VerticalAlignment" Value="Center" />
+            <Style x:Key="Button A" TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinWidth" Value="70" />
             </Style>
-            <Style TargetType="{x:Type CheckBox}" >
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="VerticalAlignment" Value="Center" />
+            <Style x:Key="Button B" TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="MinHeight" Value="30" />
+                <Setter Property="MinWidth" Value="70" />
             </Style>
         </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120" />
-            <ColumnDefinition Width="120" />
-            <ColumnDefinition Width="75" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="125" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="35" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-        <TextBlock Text="Nome" />
-        <TextBlock Text="Cognome" Grid.Column="1" />
-        <TextBlock Text="Età" Grid.Column="2" />
-        <TextBlock Text="Sesso" Grid.Column="3" />
-        <TextBlock Text="Luogo di nascita" Grid.Column="4" />
-        <TextBlock Text="Modificare" Grid.Column="5" />
-        <TextBlock Text="Eliminare" Grid.Column="6" />
-        <CheckBox Grid.Column="5" Grid.Row="1" />
-        <CheckBox Grid.Column="6" Grid.Row="1" />
+        <DataGrid x:Name="Tabella" ItemsSource="{Binding Elenco}" AutoGenerateColumns="False" CanUserAddRows="False" RowDetailsVisibilityMode="Collapsed" 
+                  SelectedItem="{Binding IsSelected}" IsReadOnly="{Binding ReadOnly}" CanUserDeleteRows="True" Margin="0, 0, 0, 50">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" DisplayIndex="0" />
+                <DataGridTextColumn Header="Cognome" Binding="{Binding Cognome}" DisplayIndex="1" />
+                <DataGridTextColumn Header="Età" Binding="{Binding Eta}" DisplayIndex="2" />
+                <DataGridTextColumn Header="Sesso" Binding="{Binding Sesso}" DisplayIndex="3" />
+                <DataGridTextColumn Header="Luogo di nascita" Binding="{Binding LuogoNascita}" DisplayIndex="4" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Conferma" Style="{StaticResource Button A}" Command="{Binding Conferma}" Margin="0, 0, 120, 10" />
+        <Button Content="Annulla" Style="{StaticResource Button A}" Command="{Binding Annulla}" Margin="0, 0, 20, 10" />
+        <Button Content="Elmina" Style="{StaticResource Button B}" Command="{Binding Elimina}" Margin="20, 0, 0, 10" />
+        <Button Content="Modifica" Style="{StaticResource Button B}" Command="{Binding Modifica}" Margin="120, 0, 0, 10"/>
     </Grid>
 </Window>

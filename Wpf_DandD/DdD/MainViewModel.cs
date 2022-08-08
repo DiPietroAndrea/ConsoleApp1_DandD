@@ -6,53 +6,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Wpf_DandD.Model;
+using Wpf_DandD.Personalizza;
 
 namespace Wpf_DandD
 {
     
     public class MainViewModel : ViewModel
     {
-        private ObservableCollection<CreaPersonaggio> elenco;
-        private int _count;
-
-
+        private static ObservableCollection<CreaPersonaggio> elenco;
 
         public MainViewModel()
         {
-            _count = 0;
-            elenco = new ObservableCollection<CreaPersonaggio>();
-            elenco.Add(new CreaPersonaggio() { Nome = "Andrea", Cognome = "Di Pietro", Eta = 20, Sesso = "Maschio", LuogoNascita = "Pavia" });
-            elenco.Add(new CreaPersonaggio() { Nome = "Simone", Cognome = "Di Pietro", Eta = 25, Sesso = "Maschio", LuogoNascita = "Voghera" });
-            elenco.Add(new CreaPersonaggio() { Nome = "Valeria", Cognome = "Calore", Eta = 18, Sesso = "Femmina", LuogoNascita = "Nettuno" });
+            if (elenco == null) elenco = new ObservableCollection<CreaPersonaggio>();
             _nuovoPersonaggio = new RelayCommand(NuovoPersonaggioRoutine);
+            _personalizza = new RelayCommand(PersonalizzaRoutine);
         }
 
         public ObservableCollection<CreaPersonaggio> Elenco
         { get { return elenco; } set { elenco = value; OnPropertyChanged(nameof(Elenco)); } }
 
-        public int Count
-        { get { return _count; } set { _count = value; OnPropertyChanged(nameof(Count));} }
-
-
         private RelayCommand _nuovoPersonaggio;
         public RelayCommand NuovoPersonaggio
         { get { return _nuovoPersonaggio; } }
 
+        private RelayCommand _personalizza;
+        public RelayCommand Personalizza
+        { get { return _personalizza; } }
+
         private void NuovoPersonaggioRoutine(object p)
         {
-            
             NewCharacterView win2 = new NewCharacterView();
             win2.ShowDialog();
+            
+            elenco.Add(win2.VM.NuovoPersonaggio);
+            
+            OnPropertyChanged(nameof(Elenco));
+        }
 
+        private void PersonalizzaRoutine(object p)
+        {
+            PersonalizzaView win3 = new PersonalizzaView();
+            win3.ShowDialog();
 
-            //(bool)win2.DialogResult; 
-            {
-            Elenco.Add(win2.VM.NuovoPersonaggio);
-            }
+            elenco.Add(win3.VM.IsSelected);
 
             OnPropertyChanged(nameof(Elenco));
-
         }
     }
-
 }

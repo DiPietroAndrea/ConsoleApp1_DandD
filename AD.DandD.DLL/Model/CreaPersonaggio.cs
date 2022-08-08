@@ -17,14 +17,17 @@ namespace AD.DandD.BLL.Model
     public class CreaPersonaggio
     {
         #region ---> Dichiarazioni
+        
         private String nome;
         private String cognome;
         private int eta;
         private String sesso;
         private String luogoNascita;
+        
         #endregion
 
         #region ---> Costruttori
+        
         public CreaPersonaggio() : this(string.Empty, string.Empty, 0, string.Empty, string.Empty)
         {
         }
@@ -37,9 +40,11 @@ namespace AD.DandD.BLL.Model
             sesso = s;
             luogoNascita = ln;
         }
+        
         #endregion
 
         #region ---> Proprietà
+        
         public Guid ID { get; set; } = Guid.NewGuid();
         public string Nome
         { get { return nome; } set { nome = value; } }
@@ -51,6 +56,7 @@ namespace AD.DandD.BLL.Model
         { get { return sesso; } set { sesso = value; } }
         public String LuogoNascita
         { get { return luogoNascita; } set { luogoNascita = value; } }
+       
         #endregion
 
         #region ---> Metodi

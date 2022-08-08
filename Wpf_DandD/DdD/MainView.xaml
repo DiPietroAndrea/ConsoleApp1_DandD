@@ -30,8 +30,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Content="{Binding Count}"/>
         <Button Grid.Column="1" Grid.Row="2" MinWidth="120" MaxHeight="35" HorizontalAlignment="Left" Content="Nuovo personaggio" Command="{Binding NuovoPersonaggio}" />
-        <Button Grid.Column="1" Grid.Row="2" MinWidth="120" MaxHeight="35" HorizontalAlignment="Right" Content="Personalizza"  />
+        <Button Grid.Column="1" Grid.Row="2" MinWidth="120" MaxHeight="35" HorizontalAlignment="Right" Content="Personalizza"  Command="{Binding Personalizza}"/>
     </Grid>
 </Window>

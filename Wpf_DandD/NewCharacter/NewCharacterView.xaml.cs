@@ -21,11 +21,11 @@ namespace Wpf_DandD
         public NewCharacterView()
         {
             InitializeComponent();
-            VM = new NewCharacterMainViewModel();
+            VM = new NewCharacterViewModel();
             this.DataContext = VM;
         }
 
-        public NewCharacterMainViewModel VM;
+        public NewCharacterViewModel VM;
 
         
     }

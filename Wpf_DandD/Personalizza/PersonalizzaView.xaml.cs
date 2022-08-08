@@ -18,11 +18,15 @@ namespace Wpf_DandD.Personalizza
     /// <summary>
     /// Logica di interazione per PersonalizzaView.xaml
     /// </summary>
-    public partial class PersonalizzaView : Window
+    public partial class PersonalizzaView 
     {
         public PersonalizzaView()
         {
             InitializeComponent();
+            VM = new PersonalizzaViewModel();
+            this.DataContext = VM;
         }
+        public PersonalizzaViewModel VM;
+
     }
 }
